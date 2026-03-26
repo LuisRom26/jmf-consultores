@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es" x-data>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Consultoría en Sistemas de Gestión, Certificación CONOCER, Renovación de Licencias y Headhunting para empresas en México. JMF Consultores.">
+  <link rel="icon" href="./assets/images/favicon/favicon.ico" />
+  <title>Servicios — JMF Consultores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="antialiased">
+
+<!-- WhatsApp -->
+<a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <img src="./assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
+</a>
+
+<!-- Navbar -->
+<nav x-data="navbar()" :class="scrolled ? 'bg-white shadow-sm' : 'bg-transparent'"
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
+        <a href="servicios.html" :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link" style="color:#F50B0B!important">Servicios</a>
+        <a href="nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="btn-primary">Contáctanos</a>
+      </div>
+      <button @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white border-t shadow-lg">
+    <div class="container-wide py-4 flex flex-col gap-1">
+      <a href="index.html"     class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Inicio</a>
+      <a href="servicios.html" class="px-4 py-3 font-medium rounded-lg hover:bg-gray-50 block" style="color:#F50B0B">Servicios</a>
+      <a href="nosotros.html"  class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Nosotros</a>
+      <div class="pt-2 px-4 pb-2"><a href="contacto.html" class="btn-primary w-full">Contáctanos</a></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container-wide text-center">
+    <span class="section-tag" style="color:rgba(255,255,255,0.6);justify-content:center">
+      <span style="background:rgba(255,255,255,0.3);width:20px;height:2px;display:block;border-radius:1px"></span>
+      Lo que hacemos
+    </span>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-5" data-cue="fadeInUp">Nuestros servicios</h1>
+    <p class="text-lg text-white/65 max-w-2xl mx-auto" data-cue="fadeInUp" data-delay="80">
+      Cuatro áreas donde ayudamos a empresas a cumplir normas, certificar personas y contratar mejor.
+      No hacemos de todo — hacemos bien lo que conocemos.
+    </p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="section-py bg-white">
+  <div class="container-wide">
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Consultoría SGE -->
+      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="0">
+        <div class="flex items-start gap-5 mb-5">
+          <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-certificate"></i></div>
+          <div>
+            <h2 class="text-xl font-bold text-[#00004D] mb-1">Consultoría en Sistemas de Gestión</h2>
+            <p class="text-[#64748B] text-sm">Para empresas que necesitan certificarse o mejorar sus procesos.</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <p class="text-[#374151] text-sm leading-relaxed mb-4">
+            Implementamos y mejoramos sistemas de gestión bajo normas nacionales e internacionales. Desde el diagnóstico inicial hasta la obtención de la certificación.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">ISO 9001</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">ISO 14001</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">ISO 45001</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">CTPAT</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">OEA</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">ISO 27001</span>
+          </div>
+        </div>
+        <a href="servicios/consultoria.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
+      </div>
+
+      <!-- CONOCER -->
+      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="80">
+        <div class="flex items-start gap-5 mb-5">
+          <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-school"></i></div>
+          <div>
+            <h2 class="text-xl font-bold text-[#00004D] mb-1">Certificación CONOCER</h2>
+            <p class="text-[#64748B] text-sm">Para instructores, capacitadores y profesionales.</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <p class="text-[#374151] text-sm leading-relaxed mb-4">
+            Evaluación oficial de competencias laborales mediante estándares del CONOCER. Acompañamos todo el proceso: desde la evaluación diagnóstica hasta la gestión del certificado.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Evaluación diagnóstica</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Integración de evidencias</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Gestión del certificado</span>
+          </div>
+        </div>
+        <a href="servicios/conocer.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
+      </div>
+
+      <!-- Licencias -->
+      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="160">
+        <div class="flex items-start gap-5 mb-5">
+          <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-id-badge"></i></div>
+          <div>
+            <h2 class="text-xl font-bold text-[#00004D] mb-1">Renovación de Licencias para Operadores</h2>
+            <p class="text-[#64748B] text-sm">Para operadores y empresas de transporte.</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <p class="text-[#374151] text-sm leading-relaxed mb-4">
+            Gestión y acompañamiento para la renovación de licencias de operadores de autotransporte federal. Nos encargamos de los requisitos, integración documental y seguimiento del trámite.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Asesoría en requisitos</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Integración documental</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Seguimiento del trámite</span>
+          </div>
+        </div>
+        <a href="servicios/licencias.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
+      </div>
+
+      <!-- Headhunting -->
+      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="240">
+        <div class="flex items-start gap-5 mb-5">
+          <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-users-group"></i></div>
+          <div>
+            <h2 class="text-xl font-bold text-[#00004D] mb-1">Headhunting y Reclutamiento Especializado</h2>
+            <p class="text-[#64748B] text-sm">Para empresas que necesitan contratar bien desde el inicio.</p>
+          </div>
+        </div>
+        <div class="mb-5">
+          <p class="text-[#374151] text-sm leading-relaxed mb-4">
+            Búsqueda y selección estratégica de talento clave para posiciones técnicas y operativas. No mandamos CVs al azar — validamos competencias y te presentamos candidatos verificados.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Perfiles operativos</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Logística y transporte</span>
+            <span class="px-3 py-1 bg-white text-[#00004D] text-xs font-medium rounded-full border border-[#E2E8F0]">Instructores certificados</span>
+          </div>
+        </div>
+        <a href="servicios/headhunting.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-py stats-bg">
+  <div class="container-wide text-center" data-cue="fadeInUp">
+    <h2 class="text-3xl font-bold text-white mb-4">¿No sabes qué servicio necesitas?</h2>
+    <p class="text-white/65 text-lg mb-8 max-w-xl mx-auto">
+      Cuéntanos sobre tu empresa y te orientamos sin costo ni compromiso.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="contacto.html" class="btn-primary">Solicitar orientación <i class="ti ti-arrow-right text-base"></i></a>
+      <a href="https://wa.me/2222012564" target="_blank" rel="noopener" class="btn-outline-white">WhatsApp directo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="container-wide py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2 mt-1">
+        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-11 w-auto mb-5 brightness-0 invert">
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">Sistemas de gestión y certificaciones para empresas en México. Resultados concretos, sin burocracia innecesaria.</p>
+        <a href="https://wa.me/2222012564" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-5 text-sm font-medium transition-colors" style="color:#4ade80">
+          <i class="ti ti-brand-whatsapp text-lg"></i> Escríbenos directo
+        </a>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Servicios</h5>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="servicios/consultoria.html" class="footer-link">Consultoría SGE</a></li>
+          <li><a href="servicios/conocer.html"     class="footer-link">Certificación CONOCER</a></li>
+          <li><a href="servicios/licencias.html"   class="footer-link">Renovación de Licencias</a></li>
+          <li><a href="servicios/headhunting.html" class="footer-link">Headhunting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Empresa</h5>
+        <ul class="flex flex-col gap-2.5 mb-7">
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-map-pin" style="color:#F50B0B"></i> Manzanillo, Colima, México</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> juan.flores@jmfconsultores.mx</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> luis.romero@jmfconsultores.mx</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t text-center" style="border-color:rgba(255,255,255,0.1)">
+      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

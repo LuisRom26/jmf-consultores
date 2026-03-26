@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es" x-data>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Conoce a JMF Consultores. Más de 15 años impulsando la certificación y el crecimiento de empresas y talento humano en México.">
+  <link rel="icon" href="assets/images/favicon/favicon.ico" />
+  <title>Nosotros — JMF Consultores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+<a href="https://wa.me/2222012564?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20JMF%20Consultores"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <img src="assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
+</a>
+
+<nav x-data="navbar()" :class="scrolled ? 'bg-white shadow-sm' : 'bg-transparent'"
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
+        <a href="servicios.html" :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Servicios</a>
+        <a href="nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link" style="color:#F50B0B!important">Nosotros</a>
+        <a href="contacto.html" class="btn-primary">Contáctanos</a>
+      </div>
+      <button @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white border-t shadow-lg">
+    <div class="container-wide py-4 flex flex-col gap-1">
+      <a href="index.html"     class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Inicio</a>
+      <a href="servicios.html" class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Servicios</a>
+      <a href="nosotros.html"  class="px-4 py-3 font-medium rounded-lg hover:bg-gray-50 block" style="color:#F50B0B">Nosotros</a>
+      <div class="pt-2 px-4 pb-2"><a href="contacto.html" class="btn-primary w-full">Contáctanos</a></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container-wide">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.12)">
+          <i class="ti ti-building text-white text-lg"></i>
+        </div>
+        <span class="text-white/60 text-sm font-medium">Quiénes somos</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" data-cue="fadeInUp">
+        Ordenamos procesos,<br>impulsamos progresos.
+      </h1>
+      <p class="text-lg text-white/65 leading-relaxed max-w-2xl" data-cue="fadeInUp" data-delay="80">
+        Somos un equipo de consultores especializados en sistemas de gestión, certificaciones y desarrollo de talento para empresas en México.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-bg py-16">
+  <div class="container-wide">
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-xl mx-auto text-center">
+      <div data-cue="fadeInUp" data-delay="0">
+        <div class="text-4xl md:text-5xl font-extrabold text-white mb-2"
+             x-data="counter(15, '+')" x-intersect="startCount()"
+             x-text="display">0</div>
+        <p class="text-white/65 text-sm leading-relaxed">Años acompañando procesos de certificación</p>
+      </div>
+      <div data-cue="fadeInUp" data-delay="100">
+        <div class="text-4xl md:text-5xl font-extrabold text-white mb-2"
+             x-data="counter(10, '+')" x-intersect="startCount()"
+             x-text="display">0</div>
+        <p class="text-white/65 text-sm leading-relaxed">Empresas que han confiado en nosotros</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Misión y Visión -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="bg-white rounded-2xl p-8 border border-[#E2E8F0]" data-cue="fadeInUp" data-delay="0">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#F50B0B">
+          <i class="ti ti-target text-white text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-[#00004D] mb-4">Misión</h3>
+        <p class="text-[#64748B] leading-relaxed">
+          Ser una consultoría reconocida por impulsar el crecimiento y la profesionalización de empresas y talento humano mediante soluciones confiables, innovadoras y orientadas a resultados, consolidándonos como un aliado estratégico en el desarrollo organizacional.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-[#E2E8F0]" data-cue="fadeInUp" data-delay="100">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#00004D">
+          <i class="ti ti-eye text-white text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-[#00004D] mb-4">Visión</h3>
+        <p class="text-[#64748B] leading-relaxed">
+          Brindar servicios de consultoría organizacional, certificación de competencias laborales y soluciones estratégicas que ayuden a empresas y profesionales a mejorar su cumplimiento, optimizar sus procesos y fortalecer su desarrollo mediante asesoría especializada y acompañamiento profesional.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Valores -->
+<section class="section-py bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-12" data-cue="fadeInUp">
+      <span class="section-tag">Lo que nos define</span>
+      <h2 class="section-title mt-2">Nuestros valores</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="0">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-shield text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Integridad</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Actuamos con honestidad y transparencia en cada compromiso que asumimos con nuestros clientes.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="60">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-medal text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Profesionalismo</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Aplicamos el más alto estándar técnico y ético en cada proyecto, sin importar su alcance.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="120">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-trending-up text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Mejora Continua</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Cuestionamos constantemente nuestros métodos para ofrecer soluciones más efectivas cada día.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="180">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-bolt text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Actitud</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Enfrentamos cada reto con energía, disposición y un enfoque positivo orientado a resultados.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="240">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-star text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Excelencia</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Nos exigimos más que el cliente porque sabemos que la calidad de nuestro trabajo refleja su confianza.</p>
+      </div>
+
+      <div class="rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#F50B0B]/30 hover:shadow-md transition-all duration-200" data-cue="fadeInUp" data-delay="300">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:#F4F6FB">
+          <i class="ti ti-heart-handshake text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-bold text-[#00004D] mb-2">Compromiso con el cliente</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">Nos involucramos como si el proyecto fuera nuestro. El éxito del cliente es nuestro éxito.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Por qué elegirnos -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="grid md:grid-cols-2 gap-14 items-center">
+      <div data-cue="fadeInUp">
+        <span class="section-tag">¿Por qué JMF?</span>
+        <h2 class="section-title mt-2 mb-6">No somos una firma genérica de consultoría</h2>
+        <div class="flex flex-col gap-5">
+          <div class="benefit-row">
+            <div class="benefit-check"><i class="ti ti-check"></i></div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Especialización en el sector</p>
+              <p class="text-[#64748B] text-sm leading-relaxed">Nos enfocamos en transporte, logística y operaciones. Conocemos los retos reales de tu industria.</p>
+            </div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-check"><i class="ti ti-check"></i></div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Acompañamiento de verdad</p>
+              <p class="text-[#64748B] text-sm leading-relaxed">No entregamos documentos y desaparecemos. Nos quedamos hasta que el resultado se logra.</p>
+            </div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-check"><i class="ti ti-check"></i></div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Soluciones a medida</p>
+              <p class="text-[#64748B] text-sm leading-relaxed">Cada empresa es diferente. Adaptamos nuestra metodología a tu contexto, no al revés.</p>
+            </div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-check"><i class="ti ti-check"></i></div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Resultados comprobables</p>
+              <p class="text-[#64748B] text-sm leading-relaxed">Certificaciones obtenidas, procesos mejorados y empresas que volvieron a contratarnos. Eso habla por nosotros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-[#E2E8F0]" data-cue="fadeInUp" data-delay="100">
+        <h3 class="text-lg font-bold text-[#00004D] mb-6">Lo que nos dicen los clientes</h3>
+        <div class="flex flex-col gap-6">
+          <div>
+            <div class="flex gap-1 mb-3">
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+            </div>
+            <p class="text-[#374151] text-sm leading-relaxed italic mb-2">"Logramos la certificación ISO 9001 en tiempo y sin complicaciones. El equipo de JMF conoce muy bien el proceso."</p>
+            <p class="text-[#00004D] text-xs font-semibold">— Director de Operaciones, empresa de transporte en CDMX</p>
+          </div>
+          <div class="border-t pt-6" style="border-color:#E2E8F0">
+            <div class="flex gap-1 mb-3">
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+              <i class="ti ti-star-filled text-sm" style="color:#F50B0B"></i>
+            </div>
+            <p class="text-[#374151] text-sm leading-relaxed italic mb-2">"Renovamos las licencias de toda nuestra flota de operadores sin perder un solo día de operación. Muy recomendables."</p>
+            <p class="text-[#00004D] text-xs font-semibold">— Gerente de Flota, empresa logística en Monterrey</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="stats-bg py-16">
+  <div class="container-wide text-center" data-cue="fadeInUp">
+    <h2 class="text-3xl font-bold text-white mb-4">¿Listo para trabajar juntos?</h2>
+    <p class="text-white/65 text-lg mb-8 max-w-xl mx-auto">Cuéntanos tu reto y te decimos cómo podemos ayudarte.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="contacto.html" class="btn-primary">Hablar con un consultor <i class="ti ti-arrow-right text-base"></i></a>
+      <a href="servicios.html" class="btn-outline-white">Ver nuestros servicios</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-bg">
+  <div class="container-wide py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2 mt-1">
+        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-11 w-auto mb-5 brightness-0 invert">
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">Sistemas de gestión y certificaciones para empresas en México.</p>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Servicios</h5>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="servicios/consultoria.html"  class="footer-link">Consultoría SGE</a></li>
+          <li><a href="servicios/conocer.html"      class="footer-link">Certificación CONOCER</a></li>
+          <li><a href="servicios/licencias.html"    class="footer-link">Renovación de Licencias</a></li>
+          <li><a href="servicios/headhunting.html"  class="footer-link">Headhunting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Empresa</h5>
+        <ul class="flex flex-col gap-2.5 mb-6">
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-map-pin" style="color:#F50B0B"></i> Manzanillo, Colima, México</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> juan.flores@jmfconsultores.mx</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> luis.romero@jmfconsultores.mx</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color:rgba(255,255,255,0.1)">
+      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

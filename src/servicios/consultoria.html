@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es" x-data>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Implementamos tu sistema de gestión ISO, CTPAT, OEA y más. Diagnóstico, implementación y certificación para empresas en México. JMF Consultores.">
+  <link rel="icon" href="../assets/images/favicon/favicon.ico" />
+  <title>Consultoría en Sistemas de Gestión — JMF Consultores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="antialiased">
+
+<a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20la%20Consultor%C3%ADa%20en%20Sistemas%20de%20Gesti%C3%B3n"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <img src="../assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
+</a>
+
+<nav x-data="navbar()" :class="scrolled ? 'bg-white shadow-sm' : 'bg-transparent'"
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-20">
+      <a href="../index.html" class="flex-shrink-0">
+        <img src="../assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="../index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
+        <a href="../servicios.html" :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link" style="color:#F50B0B!important">Servicios</a>
+        <a href="../nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Nosotros</a>
+        <a href="../contacto.html" class="btn-primary">Contáctanos</a>
+      </div>
+      <button @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white border-t shadow-lg">
+    <div class="container-wide py-4 flex flex-col gap-1">
+      <a href="../index.html"     class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Inicio</a>
+      <a href="../servicios.html" class="px-4 py-3 font-medium rounded-lg hover:bg-gray-50 block" style="color:#F50B0B">Servicios</a>
+      <a href="../nosotros.html"  class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Nosotros</a>
+      <div class="pt-2 px-4 pb-2"><a href="../contacto.html" class="btn-primary w-full">Contáctanos</a></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container-wide">
+    <a href="../servicios.html" class="inline-flex items-center gap-2 text-white/55 text-sm mb-6 hover:text-white/80 transition-colors">
+      <i class="ti ti-arrow-left text-base"></i> Todos los servicios
+    </a>
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.12)">
+          <i class="ti ti-certificate text-white text-lg"></i>
+        </div>
+        <span class="text-white/60 text-sm font-medium">Sistemas de Gestión</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" data-cue="fadeInUp">
+        Implementamos tu sistema de gestión.<br>Tú te enfocas en operar.
+      </h1>
+      <p class="text-lg text-white/65 leading-relaxed max-w-2xl" data-cue="fadeInUp" data-delay="80">
+        Para empresas que necesitan certificarse o mejorar sus procesos bajo normas nacionales e internacionales.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- El Problema -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="grid md:grid-cols-2 gap-14 items-start">
+      <div data-cue="fadeInUp">
+        <span class="section-tag">El problema</span>
+        <h2 class="section-title mt-2 mb-6">¿Te identificas con alguno de estos puntos?</h2>
+        <div class="flex flex-col gap-3">
+          <div class="pain-item">
+            <span class="pain-dot"></span>
+            <p class="text-[#374151] text-sm leading-relaxed">Tu empresa necesita certificación ISO, CTPAT u OEA pero no tienes a nadie interno que sepa cómo lograrlo.</p>
+          </div>
+          <div class="pain-item">
+            <span class="pain-dot"></span>
+            <p class="text-[#374151] text-sm leading-relaxed">Ya intentaste implementar el sistema pero quedó en papeles que nadie usa.</p>
+          </div>
+          <div class="pain-item">
+            <span class="pain-dot"></span>
+            <p class="text-[#374151] text-sm leading-relaxed">Tienes una auditoría próxima y no sabes si van a encontrar incumplimientos.</p>
+          </div>
+          <div class="pain-item">
+            <span class="pain-dot"></span>
+            <p class="text-[#374151] text-sm leading-relaxed">Contrataste a alguien que entregó documentos genéricos que no aplican a tu operación real.</p>
+          </div>
+        </div>
+      </div>
+      <div data-cue="fadeInUp" data-delay="100">
+        <span class="section-tag">Nuestra solución</span>
+        <h2 class="section-title mt-2 mb-5">Lo que hacemos diferente</h2>
+        <p class="text-[#64748B] leading-relaxed mb-6">
+          Nos integramos a tu equipo temporalmente. Hacemos el diagnóstico, diseñamos el sistema a la medida de tu empresa y te acompañamos hasta que la certificadora diga que pasaste.
+        </p>
+        <h4 class="font-semibold text-[#00004D] mb-4 text-sm uppercase tracking-wider">Normas que manejamos</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 bg-[#00004D] text-white text-xs font-semibold rounded-full">ISO 9001 — Calidad</span>
+          <span class="px-3 py-1.5 bg-[#00004D] text-white text-xs font-semibold rounded-full">ISO 14001 — Ambiental</span>
+          <span class="px-3 py-1.5 bg-[#00004D] text-white text-xs font-semibold rounded-full">ISO 45001 — SST</span>
+          <span class="px-3 py-1.5 bg-[#00004D] text-white text-xs font-semibold rounded-full">ISO 27001 — Seguridad TI</span>
+          <span class="px-3 py-1.5 bg-[#00004D] text-white text-xs font-semibold rounded-full">ISO 37001 — Antisoborno</span>
+          <span class="px-3 py-1.5 bg-[#F50B0B] text-white text-xs font-semibold rounded-full">CTPAT</span>
+          <span class="px-3 py-1.5 bg-[#F50B0B] text-white text-xs font-semibold rounded-full">OEA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proceso -->
+<section class="section-py bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-12" data-cue="fadeInUp">
+      <span class="section-tag">Cómo lo hacemos</span>
+      <h2 class="section-title mt-2">El proceso, paso a paso</h2>
+    </div>
+    <div class="max-w-2xl mx-auto">
+      <div class="process-item" data-cue="fadeInUp" data-delay="0">
+        <div class="process-num-badge">01</div>
+        <div>
+          <h4 class="font-semibold text-[#00004D] mb-1">Diagnóstico de brecha</h4>
+          <p class="text-[#64748B] text-sm leading-relaxed">Comparamos tu operación actual contra los requisitos de la norma. Sabes exactamente dónde estás y cuánto falta.</p>
+        </div>
+      </div>
+      <div class="process-item" data-cue="fadeInUp" data-delay="60">
+        <div class="process-num-badge">02</div>
+        <div>
+          <h4 class="font-semibold text-[#00004D] mb-1">Diseño del sistema</h4>
+          <p class="text-[#64748B] text-sm leading-relaxed">Creamos los documentos, procedimientos y registros que realmente aplican a tu empresa. Sin copias genéricas de internet.</p>
+        </div>
+      </div>
+      <div class="process-item" data-cue="fadeInUp" data-delay="120">
+        <div class="process-num-badge">03</div>
+        <div>
+          <h4 class="font-semibold text-[#00004D] mb-1">Capacitación al equipo</h4>
+          <p class="text-[#64748B] text-sm leading-relaxed">Explicamos a tu gente qué hace el sistema y por qué. No basta con tener documentos — tienen que entenderse.</p>
+        </div>
+      </div>
+      <div class="process-item" data-cue="fadeInUp" data-delay="180">
+        <div class="process-num-badge">04</div>
+        <div>
+          <h4 class="font-semibold text-[#00004D] mb-1">Implementación</h4>
+          <p class="text-[#64748B] text-sm leading-relaxed">Acompañamos la operación del sistema durante el período previo a la auditoría.</p>
+        </div>
+      </div>
+      <div class="process-item" data-cue="fadeInUp" data-delay="240">
+        <div class="process-num-badge">05</div>
+        <div>
+          <h4 class="font-semibold text-[#00004D] mb-1">Auditoría interna y cierre</h4>
+          <p class="text-[#64748B] text-sm leading-relaxed">Hacemos una auditoría interna previa para detectar y corregir pendientes antes del día oficial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resultados -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="max-w-3xl mx-auto text-center mb-10" data-cue="fadeInUp">
+      <span class="section-tag">Lo que obtienes</span>
+      <h2 class="section-title mt-2">Resultados concretos</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+      <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] text-center" data-cue="fadeInUp" data-delay="0">
+        <i class="ti ti-circle-check text-4xl mb-3" style="color:#F50B0B"></i>
+        <p class="text-[#00004D] font-semibold text-sm">Sistema funcional y operado por tu equipo</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] text-center" data-cue="fadeInUp" data-delay="60">
+        <i class="ti ti-file-check text-4xl mb-3" style="color:#F50B0B"></i>
+        <p class="text-[#00004D] font-semibold text-sm">Documentación lista para cualquier auditoría</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] text-center" data-cue="fadeInUp" data-delay="120">
+        <i class="ti ti-certificate text-4xl mb-3" style="color:#F50B0B"></i>
+        <p class="text-[#00004D] font-semibold text-sm">Certificación obtenida en el plazo acordado</p>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-[#E2E8F0] text-center" data-cue="fadeInUp" data-delay="180">
+        <i class="ti ti-users text-4xl mb-3" style="color:#F50B0B"></i>
+        <p class="text-[#00004D] font-semibold text-sm">Personal capacitado que entiende el sistema</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="stats-bg py-16">
+  <div class="container-wide text-center" data-cue="fadeInUp">
+    <h2 class="text-3xl font-bold text-white mb-4">¿Listo para certificar tu empresa?</h2>
+    <p class="text-white/65 text-lg mb-8 max-w-xl mx-auto">Hablemos de tu caso específico. Diagnóstico sin costo.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="../contacto.html" class="btn-primary">Quiero certificar mi empresa <i class="ti ti-arrow-right text-base"></i></a>
+      <a href="https://wa.me/2222012564?text=Hola%2C%20necesito%20ayuda%20con%20certificaci%C3%B3n" target="_blank" rel="noopener" class="btn-outline-white">WhatsApp directo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="container-wide py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2 mt-1">
+        <img src="../assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-11 w-auto mb-5 brightness-0 invert">
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">Sistemas de gestión y certificaciones para empresas en México.</p>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Servicios</h5>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="consultoria.html"  class="footer-link">Consultoría SGE</a></li>
+          <li><a href="conocer.html"      class="footer-link">Certificación CONOCER</a></li>
+          <li><a href="licencias.html"    class="footer-link">Renovación de Licencias</a></li>
+          <li><a href="headhunting.html"  class="footer-link">Headhunting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Empresa</h5>
+        <ul class="flex flex-col gap-2.5 mb-6">
+          <li><a href="../nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="../contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-map-pin" style="color:#F50B0B"></i> Manzanillo, Colima, México</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> juan.flores@jmfconsultores.mx</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> luis.romero@jmfconsultores.mx</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color:rgba(255,255,255,0.1)">
+      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

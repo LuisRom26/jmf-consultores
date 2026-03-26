@@ -1,0 +1,531 @@
+<!doctype html>
+
+<html lang="es" x-data>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="JMF Consultores implementa sistemas de gestión y gestiona certificaciones ISO, CTPAT, OEA y CONOCER para empresas en México. Proceso claro, sin burocracia.">
+  <meta name="keywords" content="consultora iso mexico, certificacion ctpat, oea mexico, conocer certificacion, sistemas de gestion empresarial">
+  <meta property="og:title" content="JMF Consultores — Certificaciones y Sistemas de Gestión">
+  <meta property="og:description" content="Ordenamos procesos, impulsamos progresos. Certificaciones ISO, CTPAT, OEA y más para empresas en México.">
+  <link rel="icon" href="./assets/images/favicon/favicon.ico" />
+  <title>JMF Consultores — Certificaciones y Sistemas de Gestión en México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="antialiased">
+
+<!-- ============================================================
+     WHATSAPP FLOAT
+     ============================================================ -->
+<a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
+   target="_blank" rel="noopener" class="whatsapp-float" title="Escríbenos por WhatsApp" aria-label="WhatsApp">
+  <img src="./assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
+</a>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav x-data="navbar()"
+     :class="scrolled ? 'bg-white shadow-sm' : 'bg-transparent'"
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex-shrink-0">
+        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html"       :class="scrolled ? 'nav-link-dark' : 'nav-link-light'" class="nav-link">Inicio</a>
+        <a href="servicios.html"   :class="scrolled ? 'nav-link-dark' : 'nav-link-light'" class="nav-link">Servicios</a>
+        <a href="nosotros.html"    :class="scrolled ? 'nav-link-dark' : 'nav-link-light'" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="btn-primary">Contáctanos</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button @click="open = !open"
+              :class="scrolled ? 'text-gray-700' : 'text-white'"
+              class="md:hidden p-2 rounded-md" aria-label="Menú">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div x-show="open"
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-end="opacity-0"
+       class="md:hidden bg-white border-t border-gray-100 shadow-lg">
+    <div class="container-wide py-4 flex flex-col gap-1">
+      <a href="index.html"     class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Inicio</a>
+      <a href="servicios.html" class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Servicios</a>
+      <a href="nosotros.html"  class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Nosotros</a>
+      <div class="pt-2 px-4 pb-2">
+        <a href="contacto.html" class="btn-primary w-full">Contáctanos</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero-bg hero-grid-overlay hero-py relative overflow-hidden">
+  <div class="container-wide relative z-10">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+
+      <!-- Text -->
+      <div>
+        <div class="hero-badge" data-cue="fadeIn" data-duration="600">
+          <span class="dot"></span>
+          ISO · CTPAT · OEA · CONOCER · Licencias · Reclutamiento
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold text-white leading-[1.12] tracking-tight mb-6"
+            data-cue="fadeInUp" data-duration="700" data-delay="100">
+          Ordenamos procesos,<br>
+          <span style="color:#F50B0B">impulsamos progresos.</span>
+        </h1>
+
+        <p class="text-lg text-white/70 leading-relaxed mb-8 max-w-lg"
+           data-cue="fadeInUp" data-duration="700" data-delay="200">
+          Implementamos sistemas de gestión y gestionamos certificaciones para empresas en México
+          — con un proceso claro, plazos reales y sin rodeos.
+        </p>
+
+        <div class="flex flex-wrap gap-4" data-cue="fadeInUp" data-duration="700" data-delay="300">
+          <a href="#contacto" class="btn-primary">
+            Solicitar diagnóstico gratuito
+            <i class="ti ti-arrow-right text-base"></i>
+          </a>
+          <a href="servicios.html" class="btn-outline-white">
+            Ver servicios
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual card -->
+      <div class="hidden lg:flex justify-center" data-cue="fadeIn" data-duration="900" data-delay="250">
+        <div class="cert-card w-full max-w-[340px]">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-0.5">Sistema activo</p>
+              <p class="text-white font-bold text-lg leading-tight">ISO 9001:2015</p>
+            </div>
+            <span class="px-3 py-1.5 rounded-full text-xs font-semibold"
+                  style="background:rgba(245,11,11,0.18);color:#ff7070;border:1px solid rgba(245,11,11,0.3)">
+              En proceso
+            </span>
+          </div>
+
+          <!-- Checklist -->
+          <div class="flex flex-col gap-2.5 mb-5">
+            <div class="cert-row cert-row-done">
+              <div class="cert-icon cert-icon-done">
+                <i class="ti ti-check text-[#22c55e]" style="font-size:12px"></i>
+              </div>
+              <span class="text-white/80 text-sm">Diagnóstico completado</span>
+            </div>
+            <div class="cert-row cert-row-done">
+              <div class="cert-icon cert-icon-done">
+                <i class="ti ti-check text-[#22c55e]" style="font-size:12px"></i>
+              </div>
+              <span class="text-white/80 text-sm">Documentación implementada</span>
+            </div>
+            <div class="cert-row cert-row-active">
+              <div class="cert-icon cert-icon-active">
+                <i class="ti ti-player-play" style="font-size:11px;color:#F50B0B"></i>
+              </div>
+              <span class="text-white text-sm font-medium">Auditoría interna en curso</span>
+            </div>
+            <div class="cert-row cert-row-pending">
+              <div class="cert-icon cert-icon-pending">
+                <i class="ti ti-circle" style="font-size:12px;color:rgba(255,255,255,0.4)"></i>
+              </div>
+              <span class="text-white/40 text-sm">Certificación final</span>
+            </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="mb-5">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-white/50 text-xs font-medium">Progreso general</span>
+              <span class="text-white font-bold text-xs">75%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width:75%"></div>
+            </div>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="grid grid-cols-3 gap-2 pt-4 border-t" style="border-color:rgba(255,255,255,0.1)">
+            <div class="text-center">
+              <p class="text-white font-bold text-lg">12</p>
+              <p class="text-white/45 text-xs">Semanas</p>
+            </div>
+            <div class="text-center border-x" style="border-color:rgba(255,255,255,0.1)">
+              <p class="text-white font-bold text-lg">8</p>
+              <p class="text-white/45 text-xs">Procesos</p>
+            </div>
+            <div class="text-center">
+              <p style="color:#22c55e" class="font-bold text-lg">3</p>
+              <p class="text-white/45 text-xs">Hallazgos</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICIOS
+     ============================================================ -->
+<section id="servicios" class="section-py bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-14" data-cue="fadeInUp">
+      <span class="section-tag">Lo que hacemos</span>
+      <h2 class="section-title mt-2 mb-3">¿Qué hacemos?</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Cuatro áreas donde ayudamos a empresas a cumplir normas, certificar personas y contratar mejor.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <a href="servicios/consultoria.html" class="service-card" data-cue="fadeInUp" data-delay="0">
+        <div class="service-icon"><i class="ti ti-certificate"></i></div>
+        <h3 class="text-[1.05rem] font-semibold text-[#00004D] mb-2 leading-snug">Consultoría en Sistemas de Gestión</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+          Implementamos sistemas bajo normas ISO, CTPAT y OEA. Desde el diagnóstico inicial hasta la certificación.
+        </p>
+        <span class="inline-flex items-center gap-1.5 text-[#F50B0B] text-sm font-semibold">
+          Ver servicio <i class="ti ti-arrow-right text-base"></i>
+        </span>
+      </a>
+
+      <a href="servicios/conocer.html" class="service-card" data-cue="fadeInUp" data-delay="80">
+        <div class="service-icon"><i class="ti ti-school"></i></div>
+        <h3 class="text-[1.05rem] font-semibold text-[#00004D] mb-2 leading-snug">Certificación CONOCER</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+          Acompañamos a instructores y capacitadores en todo el proceso de evaluación y certificación oficial de competencias laborales.
+        </p>
+        <span class="inline-flex items-center gap-1.5 text-[#F50B0B] text-sm font-semibold">
+          Ver servicio <i class="ti ti-arrow-right text-base"></i>
+        </span>
+      </a>
+
+      <a href="servicios/licencias.html" class="service-card" data-cue="fadeInUp" data-delay="160">
+        <div class="service-icon"><i class="ti ti-id-badge"></i></div>
+        <h3 class="text-[1.05rem] font-semibold text-[#00004D] mb-2 leading-snug">Renovación de Licencias para Operadores</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+          Gestionamos la renovación de licencias de operadores de autotransporte: requisitos, documentación y seguimiento.
+        </p>
+        <span class="inline-flex items-center gap-1.5 text-[#F50B0B] text-sm font-semibold">
+          Ver servicio <i class="ti ti-arrow-right text-base"></i>
+        </span>
+      </a>
+
+      <a href="servicios/headhunting.html" class="service-card" data-cue="fadeInUp" data-delay="240">
+        <div class="service-icon"><i class="ti ti-users-group"></i></div>
+        <h3 class="text-[1.05rem] font-semibold text-[#00004D] mb-2 leading-snug">Headhunting y Reclutamiento Especializado</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed mb-5">
+          Búsqueda y selección de perfiles técnicos y operativos. Validamos competencias antes de presentarte un candidato.
+        </p>
+        <span class="inline-flex items-center gap-1.5 text-[#F50B0B] text-sm font-semibold">
+          Ver servicio <i class="ti ti-arrow-right text-base"></i>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIFERENCIADORES
+     ============================================================ -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="text-center mb-14" data-cue="fadeInUp">
+      <span class="section-tag">Por qué elegirnos</span>
+      <h2 class="section-title mt-2">Por qué empresas nos eligen</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="diff-card" data-cue="fadeInUp" data-delay="0">
+        <div class="diff-icon"><i class="ti ti-tool"></i></div>
+        <h3 class="text-lg font-semibold text-[#00004D] mb-3">Trabajamos contigo, no para ti</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          No entregamos un manual y desaparecemos. Nos involucramos en cada etapa: diagnóstico, implementación, auditorías y seguimiento post-certificación.
+        </p>
+      </div>
+
+      <div class="diff-card" data-cue="fadeInUp" data-delay="100">
+        <div class="diff-icon"><i class="ti ti-award"></i></div>
+        <h3 class="text-lg font-semibold text-[#00004D] mb-3">Conocemos las normas por dentro</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Experiencia directa con ISO 9001, 14001, 45001, 37001, 27001, CTPAT, OEA y CONOCER. No aprendemos con tu empresa — ya sabemos qué funciona.
+        </p>
+      </div>
+
+      <div class="diff-card" data-cue="fadeInUp" data-delay="200">
+        <div class="diff-icon"><i class="ti ti-checklist"></i></div>
+        <h3 class="text-lg font-semibold text-[#00004D] mb-3">Te decimos qué sí y qué no es necesario</h3>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Separamos lo que realmente exige la norma de lo que es relleno — y eso te ahorra tiempo y dinero desde el primer día.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESO
+     ============================================================ -->
+<section class="section-py bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-14" data-cue="fadeInUp">
+      <span class="section-tag">Cómo trabajamos</span>
+      <h2 class="section-title mt-2 mb-3">Así trabajamos</h2>
+      <p class="section-subtitle">Un proceso directo, sin sorpresas.</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8 relative">
+      <!-- Connector (desktop) -->
+      <div class="hidden md:block absolute top-7 left-[14%] right-[14%] h-px bg-[#E2E8F0] z-0"></div>
+
+      <div class="text-center relative z-10" data-cue="fadeInUp" data-delay="0">
+        <div class="step-icon-wrap"><i class="ti ti-search"></i></div>
+        <div class="step-num">01</div>
+        <h4 class="font-semibold text-[#00004D] mb-2 text-[0.95rem]">Diagnóstico inicial</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Analizamos tu situación: qué tienes, qué te falta y qué tan lejos estás de la certificación.
+        </p>
+      </div>
+
+      <div class="text-center relative z-10" data-cue="fadeInUp" data-delay="100">
+        <div class="step-icon-wrap"><i class="ti ti-map"></i></div>
+        <div class="step-num">02</div>
+        <h4 class="font-semibold text-[#00004D] mb-2 text-[0.95rem]">Plan personalizado</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Una hoja de ruta con actividades concretas, responsables y fechas. Sin objetivos vagos.
+        </p>
+      </div>
+
+      <div class="text-center relative z-10" data-cue="fadeInUp" data-delay="200">
+        <div class="step-icon-wrap"><i class="ti ti-settings"></i></div>
+        <div class="step-num">03</div>
+        <h4 class="font-semibold text-[#00004D] mb-2 text-[0.95rem]">Implementación</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Acompañamos la ejecución paso a paso. Revisamos, corregimos y ajustamos en tiempo real.
+        </p>
+      </div>
+
+      <div class="text-center relative z-10" data-cue="fadeInUp" data-delay="300">
+        <div class="step-icon-wrap"><i class="ti ti-trophy"></i></div>
+        <div class="step-num">04</div>
+        <h4 class="font-semibold text-[#00004D] mb-2 text-[0.95rem]">Certificación y cierre</h4>
+        <p class="text-[#64748B] text-sm leading-relaxed">
+          Estamos contigo en la auditoría final. El objetivo es que cruces la línea, no solo que te prepares.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS / CONFIANZA
+     ============================================================ -->
+<section class="stats-bg py-20">
+  <div class="container-wide">
+    <div class="text-center mb-12" data-cue="fadeInUp">
+      <h2 class="text-3xl font-bold text-white">Empresas que confían en nosotros</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+
+      <div class="text-center" x-data="counter(15)" data-cue="fadeInUp" data-delay="0">
+        <div class="stat-num">
+          <span class="stat-accent">+</span><span x-text="value">0</span>
+        </div>
+        <p class="text-white font-semibold mt-2 text-lg">años</p>
+        <p class="text-white/55 text-sm mt-1">Acompañando procesos de certificación</p>
+      </div>
+
+      <div class="text-center border-y md:border-y-0 md:border-x py-10 md:py-0"
+           style="border-color:rgba(255,255,255,0.12)"
+           x-data="counter(10)" data-cue="fadeInUp" data-delay="150">
+        <div class="stat-num">
+          <span class="stat-accent">+</span><span x-text="value">0</span>
+        </div>
+        <p class="text-white font-semibold mt-2 text-lg">empresas</p>
+        <p class="text-white/55 text-sm mt-1">Han confiado en nosotros</p>
+      </div>
+
+      <div class="text-center" x-data="counter(4)" data-cue="fadeInUp" data-delay="300">
+        <div class="stat-num"><span x-text="value">0</span></div>
+        <p class="text-white font-semibold mt-2 text-lg">áreas</p>
+        <p class="text-white/55 text-sm mt-1">De servicio especializado</p>
+      </div>
+
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3" data-cue="fadeInUp" data-delay="150">
+      <span class="sector-pill">Manufactura</span>
+      <span class="sector-pill">Logística y Transporte</span>
+      <span class="sector-pill">Servicios Profesionales</span>
+      <span class="sector-pill">Comercio Exterior</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL / CONTACTO
+     ============================================================ -->
+<section id="contacto" class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="text-center mb-10" data-cue="fadeInUp">
+        <span class="section-tag">Empecemos</span>
+        <h2 class="section-title mt-2 mb-3">¿Tu empresa necesita una certificación?</h2>
+        <p class="section-subtitle">
+          Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un diagnóstico sin costo.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-[#E2E8F0]" data-cue="fadeInUp" data-delay="80">
+        <form class="jmf-form">
+          <div class="grid md:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label class="form-label">Nombre completo</label>
+              <input type="text" class="form-input" placeholder="Tu nombre" required>
+            </div>
+            <div>
+              <label class="form-label">Empresa</label>
+              <input type="text" class="form-input" placeholder="Nombre de tu empresa" required>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label class="form-label">Teléfono / WhatsApp</label>
+              <input type="tel" class="form-input" placeholder="+52 55 0000 0000" required>
+            </div>
+            <div>
+              <label class="form-label">¿Qué necesitas?</label>
+              <select class="form-input" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Consultoría en Sistemas de Gestión</option>
+                <option>Certificación CONOCER</option>
+                <option>Renovación de Licencias</option>
+                <option>Headhunting y Reclutamiento</option>
+                <option>No sé, necesito orientación</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-6">
+            <label class="form-label">Mensaje (opcional)</label>
+            <textarea class="form-input" rows="3" placeholder="Cuéntanos brevemente sobre tu situación..."></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 items-center">
+            <button type="submit" class="btn-primary flex-1 sm:flex-none">
+              Enviar solicitud
+              <i class="ti ti-send text-base"></i>
+            </button>
+            <span class="text-[#94A3B8] text-sm hidden sm:block">o</span>
+            <a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
+               target="_blank" rel="noopener" class="btn-navy flex-1 sm:flex-none">
+              <img src="./assets/images/logo/wlogo.png" alt="WhatsApp" style="width:18px; height:18px; flex-shrink:0">
+              Escríbenos por WhatsApp
+            </a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer-bg">
+  <div class="container-wide py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+      <div class="md:col-span-2 mt-1">
+        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores"
+             class="h-11 w-auto mb-5 brightness-0 invert">
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">
+          Sistemas de gestión y certificaciones para empresas en México.
+          Resultados concretos, sin burocracia innecesaria.
+        </p>
+        <a href="https://wa.me/2222012564" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-5 text-sm font-medium transition-colors"
+           style="color:#4ade80">
+          <i class="ti ti-brand-whatsapp text-lg"></i>
+          Escríbenos directo
+        </a>
+      </div>
+
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Servicios</h5>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="servicios/consultoria.html" class="footer-link">Consultoría SGE</a></li>
+          <li><a href="servicios/conocer.html"     class="footer-link">Certificación CONOCER</a></li>
+          <li><a href="servicios/licencias.html"   class="footer-link">Renovación de Licencias</a></li>
+          <li><a href="servicios/headhunting.html" class="footer-link">Headhunting</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Empresa</h5>
+        <ul class="flex flex-col gap-2.5 mb-7">
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+        <h5 class="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Contacto</h5>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2 text-white/55 text-sm">
+            <i class="ti ti-map-pin" style="color:#F50B0B"></i> Manzanillo, Colima, México
+          </li>
+          <li class="flex items-center gap-2 text-white/55 text-sm">
+            <i class="ti ti-mail" style="color:#F50B0B"></i> juan.flores@jmfconsultores.mx
+          </li>
+          <li class="flex items-center gap-2 text-white/55 text-sm">
+            <i class="ti ti-mail" style="color:#F50B0B"></i> luis.romero@jmfconsultores.mx
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t text-center"
+         style="border-color:rgba(255,255,255,0.1)">
+      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

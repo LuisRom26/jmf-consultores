@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="es" x-data>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contacta a JMF Consultores. Escríbenos por WhatsApp o completa el formulario. Respondemos en menos de 24 horas.">
+  <link rel="icon" href="assets/images/favicon/favicon.ico" />
+  <title>Contacto — JMF Consultores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+<a href="https://wa.me/2222012564?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <img src="assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
+</a>
+
+<nav x-data="navbar()" :class="scrolled ? 'bg-white shadow-sm' : 'bg-transparent'"
+     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container-wide">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
+        <a href="servicios.html" :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Servicios</a>
+        <a href="nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="btn-primary">Contáctanos</a>
+      </div>
+      <button @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md">
+        <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div x-show="open" x-transition class="md:hidden bg-white border-t shadow-lg">
+    <div class="container-wide py-4 flex flex-col gap-1">
+      <a href="index.html"     class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Inicio</a>
+      <a href="servicios.html" class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Servicios</a>
+      <a href="nosotros.html"  class="px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-gray-50 block">Nosotros</a>
+      <div class="pt-2 px-4 pb-2"><a href="contacto.html" class="btn-primary w-full">Contáctanos</a></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container-wide">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(255,255,255,0.12)">
+          <i class="ti ti-message text-white text-lg"></i>
+        </div>
+        <span class="text-white/60 text-sm font-medium">Hablemos</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight" data-cue="fadeInUp">
+        Cuéntanos tu reto.<br>Nosotros lo resolvemos.
+      </h1>
+      <p class="text-lg text-white/65 leading-relaxed max-w-2xl" data-cue="fadeInUp" data-delay="80">
+        Respondemos en menos de 24 horas. Si prefieres algo más inmediato, escríbenos por WhatsApp.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto principal -->
+<section class="section-py bg-[#F4F6FB]">
+  <div class="container-wide">
+    <div class="grid md:grid-cols-5 gap-12 items-start">
+
+      <!-- Formulario -->
+      <div class="md:col-span-3 bg-white rounded-2xl p-8 border border-[#E2E8F0]" data-cue="fadeInUp">
+        <h2 class="text-xl font-bold text-[#00004D] mb-2">Envíanos un mensaje</h2>
+        <p class="text-[#64748B] text-sm mb-7">Completa el formulario y nos pondremos en contacto contigo.</p>
+
+        <form class="jmf-form flex flex-col gap-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-medium text-[#374151] mb-1.5">Nombre *</label>
+              <input type="text" name="nombre" required placeholder="Tu nombre"
+                     class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[#374151] mb-1.5">Empresa</label>
+              <input type="text" name="empresa" placeholder="Nombre de tu empresa"
+                     class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-medium text-[#374151] mb-1.5">Correo electrónico *</label>
+              <input type="email" name="email" required placeholder="tu@correo.com"
+                     class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[#374151] mb-1.5">Teléfono / WhatsApp</label>
+              <input type="tel" name="telefono" placeholder="+52 55 0000 0000"
+                     class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[#374151] mb-1.5">¿En qué podemos ayudarte? *</label>
+            <select name="servicio" required
+                    class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition text-[#374151]">
+              <option value="" disabled selected>Selecciona un servicio</option>
+              <option value="consultoria">Consultoría en Sistemas de Gestión (ISO, CTPAT, OEA)</option>
+              <option value="conocer">Certificación CONOCER</option>
+              <option value="licencias">Renovación de Licencias para Operadores</option>
+              <option value="headhunting">Headhunting y Reclutamiento</option>
+              <option value="otro">Otro / No estoy seguro</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[#374151] mb-1.5">Cuéntanos más *</label>
+            <textarea name="mensaje" required rows="4" placeholder="Describe brevemente tu situación o lo que necesitas..."
+                      class="w-full rounded-lg border border-[#D1D5DB] px-4 py-2.5 text-sm focus:outline-none focus:border-[#00004D] focus:ring-2 focus:ring-[#00004D]/10 transition resize-none"></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn-primary w-full justify-center">
+              <span class="btn-text">Enviar mensaje <i class="ti ti-send text-base"></i></span>
+              <span class="btn-loading hidden">Enviando...</span>
+            </button>
+          </div>
+
+          <div class="form-success hidden bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl p-4">
+            <div class="flex items-center gap-3">
+              <i class="ti ti-circle-check text-2xl" style="color:#16A34A"></i>
+              <div>
+                <p class="font-semibold text-[#15803D] text-sm">¡Mensaje enviado!</p>
+                <p class="text-[#166534] text-xs">Te responderemos en menos de 24 horas.</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Info de contacto -->
+      <div class="md:col-span-2 flex flex-col gap-6" data-cue="fadeInUp" data-delay="100">
+
+        <!-- WhatsApp destacado -->
+        <a href="https://wa.me/2222012564?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+           target="_blank" rel="noopener"
+           class="flex items-center gap-4 bg-[#25D366] rounded-2xl p-6 text-white hover:bg-[#1ebe5a] transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+            <img src="assets/images/logo/wlogo.png" alt="WhatsApp" style="width:26px;height:26px;object-fit:contain">
+          </div>
+          <div>
+            <p class="font-bold text-base">Escríbenos por WhatsApp</p>
+            <p class="text-white/80 text-sm">Respuesta inmediata en horario de oficina</p>
+          </div>
+          <i class="ti ti-arrow-right text-xl ml-auto group-hover:translate-x-1 transition-transform"></i>
+        </a>
+
+        <!-- Correo -->
+        <div class="bg-white rounded-2xl p-6 border border-[#E2E8F0]">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#F4F6FB">
+              <i class="ti ti-mail text-[#00004D] text-lg"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Correo electrónico</p>
+              <a href="mailto:contacto@jmfconsultores.com" class="text-[#F50B0B] text-sm hover:underline">contacto@jmfconsultores.com</a>
+              <p class="text-[#64748B] text-xs mt-1">Respondemos en menos de 24 horas</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="bg-white rounded-2xl p-6 border border-[#E2E8F0]">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#F4F6FB">
+              <i class="ti ti-map-pin text-[#00004D] text-lg"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-1">Ubicación</p>
+              <p class="text-[#64748B] text-sm">México</p>
+              <p class="text-[#64748B] text-xs mt-1">Atención en todo el país</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horario -->
+        <div class="bg-white rounded-2xl p-6 border border-[#E2E8F0]">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#F4F6FB">
+              <i class="ti ti-clock text-[#00004D] text-lg"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-[#00004D] mb-2">Horario de atención</p>
+              <div class="flex flex-col gap-1">
+                <div class="flex justify-between text-sm">
+                  <span class="text-[#374151]">Lunes — Viernes</span>
+                  <span class="text-[#00004D] font-medium">9:00 — 18:00</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-[#374151]">Sábado</span>
+                  <span class="text-[#64748B]">Con cita previa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios rápidos -->
+<section class="section-py bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-10" data-cue="fadeInUp">
+      <span class="section-tag">¿Qué necesitas?</span>
+      <h2 class="section-title mt-2">Selecciona el servicio que te interesa</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+      <a href="servicios/consultoria.html" class="group bg-[#F4F6FB] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#00004D]/30 hover:shadow-md transition-all duration-200 block" data-cue="fadeInUp" data-delay="0">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:white;border:1px solid #E2E8F0">
+          <i class="ti ti-certificate text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-semibold text-[#00004D] mb-1 text-sm">Consultoría SGE</h4>
+        <p class="text-[#64748B] text-xs leading-relaxed">ISO 9001, 14001, CTPAT, OEA y más</p>
+        <div class="flex items-center gap-1 mt-3 text-[#F50B0B] text-xs font-medium">
+          Saber más <i class="ti ti-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+      <a href="servicios/conocer.html" class="group bg-[#F4F6FB] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#00004D]/30 hover:shadow-md transition-all duration-200 block" data-cue="fadeInUp" data-delay="60">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:white;border:1px solid #E2E8F0">
+          <i class="ti ti-school text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-semibold text-[#00004D] mb-1 text-sm">Certificación CONOCER</h4>
+        <p class="text-[#64748B] text-xs leading-relaxed">Competencias laborales certificadas</p>
+        <div class="flex items-center gap-1 mt-3 text-[#F50B0B] text-xs font-medium">
+          Saber más <i class="ti ti-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+      <a href="servicios/licencias.html" class="group bg-[#F4F6FB] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#00004D]/30 hover:shadow-md transition-all duration-200 block" data-cue="fadeInUp" data-delay="120">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:white;border:1px solid #E2E8F0">
+          <i class="ti ti-id-badge text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-semibold text-[#00004D] mb-1 text-sm">Renovación de Licencias</h4>
+        <p class="text-[#64748B] text-xs leading-relaxed">Para operadores de autotransporte</p>
+        <div class="flex items-center gap-1 mt-3 text-[#F50B0B] text-xs font-medium">
+          Saber más <i class="ti ti-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+      <a href="servicios/headhunting.html" class="group bg-[#F4F6FB] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#00004D]/30 hover:shadow-md transition-all duration-200 block" data-cue="fadeInUp" data-delay="180">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:white;border:1px solid #E2E8F0">
+          <i class="ti ti-users text-[#00004D] text-lg"></i>
+        </div>
+        <h4 class="font-semibold text-[#00004D] mb-1 text-sm">Headhunting</h4>
+        <p class="text-[#64748B] text-xs leading-relaxed">Reclutamiento especializado</p>
+        <div class="flex items-center gap-1 mt-3 text-[#F50B0B] text-xs font-medium">
+          Saber más <i class="ti ti-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-bg">
+  <div class="container-wide py-16">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-11 w-auto mb-5 brightness-0 invert">
+        <p class="text-white/55 text-sm leading-relaxed max-w-xs">Sistemas de gestión y certificaciones para empresas en México.</p>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Servicios</h5>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="servicios/consultoria.html"  class="footer-link">Consultoría SGE</a></li>
+          <li><a href="servicios/conocer.html"      class="footer-link">Certificación CONOCER</a></li>
+          <li><a href="servicios/licencias.html"    class="footer-link">Renovación de Licencias</a></li>
+          <li><a href="servicios/headhunting.html"  class="footer-link">Headhunting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Empresa</h5>
+        <ul class="flex flex-col gap-2.5 mb-6">
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-map-pin" style="color:#F50B0B"></i> Manzanillo, Colima, México</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> juan.flores@jmfconsultores.mx</li>
+          <li class="flex items-center gap-2 text-white/55 text-sm"><i class="ti ti-mail" style="color:#F50B0B"></i> luis.romero@jmfconsultores.mx</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color:rgba(255,255,255,0.1)">
+      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
