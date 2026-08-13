@@ -8,7 +8,12 @@
   <meta name="keywords" content="consultora iso mexico, certificacion ctpat, oea mexico, conocer certificacion, sistemas de gestion empresarial">
   <meta property="og:title" content="JMF Consultores — Certificaciones y Sistemas de Gestión">
   <meta property="og:description" content="Ordenamos procesos, impulsamos progresos. Certificaciones ISO, CTPAT, OEA y más para empresas en México.">
-  <link rel="icon" href="./assets/images/favicon/favicon.ico" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jmfconsultores.mx/">
+  <meta property="og:image" content="https://jmfconsultores.mx/assets/images/logo/logojmf.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://jmfconsultores.mx/">
+  <link rel="icon" href="./assets/images/favicon/favicon.svg" type="image/svg+xml" />
   <title>JMF Consultores — Certificaciones y Sistemas de Gestión en México</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +21,13 @@
 </head>
 
 <body class="antialiased">
+<style>[x-cloak] { display: none !important; }</style>
 
 <!-- ============================================================
      WHATSAPP FLOAT
      ============================================================ -->
-<a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
-   target="_blank" rel="noopener" class="whatsapp-float" title="Escríbenos por WhatsApp" aria-label="WhatsApp">
+<a href="https://wa.me/522222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
+   target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Escríbenos por WhatsApp" aria-label="WhatsApp">
   <img src="./assets/images/logo/wlogo.png" alt="WhatsApp" style="position:relative;z-index:1;width:28px;height:28px;object-fit:contain">
 </a>
 
@@ -48,9 +54,15 @@
       </div>
 
       <!-- Mobile toggle -->
-      <button @click="open = !open"
+      <button type="button"
+              @click="open = !open"
               :class="scrolled ? 'text-gray-700' : 'text-white'"
-              class="md:hidden p-2 rounded-md" aria-label="Menú">
+              class="md:hidden p-2 rounded-md"
+              aria-label="Abrir menú de navegación"
+              :aria-label="open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+              aria-expanded="false"
+              :aria-expanded="open ? 'true' : 'false'"
+              aria-controls="mobile-menu">
         <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -62,7 +74,7 @@
   </div>
 
   <!-- Mobile menu -->
-  <div x-show="open"
+  <div id="mobile-menu" x-cloak x-show="open"
        x-transition:enter="transition ease-out duration-200"
        x-transition:enter-start="opacity-0 -translate-y-2"
        x-transition:enter-end="opacity-100 translate-y-0"
@@ -125,7 +137,7 @@
           <div class="flex items-center justify-between mb-5">
             <div>
               <p class="text-white/50 text-xs font-semibold uppercase tracking-wider mb-0.5">Sistema activo</p>
-              <p class="text-white font-bold text-lg leading-tight">ISO 9001:2015</p>
+              <p class="text-white font-bold text-lg leading-tight">Sistema de Gestión Integral</p>
             </div>
             <span class="px-3 py-1.5 rounded-full text-xs font-semibold"
                   style="background:rgba(245,11,11,0.18);color:#ff7070;border:1px solid rgba(245,11,11,0.3)">
@@ -417,34 +429,42 @@
         <form class="jmf-form">
           <div class="grid md:grid-cols-2 gap-5 mb-5">
             <div>
-              <label class="form-label">Nombre completo</label>
-              <input type="text" class="form-input" placeholder="Tu nombre" required>
+              <label class="form-label" for="home-nombre">Nombre completo</label>
+              <input id="home-nombre" name="nombre" type="text" class="form-input" placeholder="Tu nombre" autocomplete="name" required>
             </div>
             <div>
-              <label class="form-label">Empresa</label>
-              <input type="text" class="form-input" placeholder="Nombre de tu empresa" required>
+              <label class="form-label" for="home-empresa">Empresa</label>
+              <input id="home-empresa" name="empresa" type="text" class="form-input" placeholder="Nombre de tu empresa" autocomplete="organization" required>
             </div>
           </div>
           <div class="grid md:grid-cols-2 gap-5 mb-5">
             <div>
-              <label class="form-label">Teléfono / WhatsApp</label>
-              <input type="tel" class="form-input" placeholder="+52 55 0000 0000" required>
+              <label class="form-label" for="home-telefono">Teléfono / WhatsApp</label>
+              <input id="home-telefono" name="telefono" type="tel" class="form-input" placeholder="+52 55 0000 0000" autocomplete="tel" required>
             </div>
             <div>
-              <label class="form-label">¿Qué necesitas?</label>
-              <select class="form-input" required>
+              <label class="form-label" for="home-servicio">¿Qué necesitas?</label>
+              <select id="home-servicio" name="servicio" class="form-input" required>
                 <option value="" disabled selected>Selecciona una opción</option>
-                <option>Consultoría en Sistemas de Gestión</option>
-                <option>Certificación CONOCER</option>
-                <option>Renovación de Licencias</option>
-                <option>Headhunting y Reclutamiento</option>
-                <option>No sé, necesito orientación</option>
+                <option value="Consultoría en Sistemas de Gestión">Consultoría en Sistemas de Gestión</option>
+                <option value="Certificación CONOCER">Certificación CONOCER</option>
+                <option value="Renovación de Licencias">Renovación de Licencias</option>
+                <option value="Headhunting y Reclutamiento">Headhunting y Reclutamiento</option>
+                <option value="Necesito orientación">No sé, necesito orientación</option>
               </select>
             </div>
           </div>
-          <div class="mb-6">
-            <label class="form-label">Mensaje (opcional)</label>
-            <textarea class="form-input" rows="3" placeholder="Cuéntanos brevemente sobre tu situación..."></textarea>
+          <div class="mb-3">
+            <label class="form-label" for="home-mensaje">Mensaje</label>
+            <textarea id="home-mensaje" name="mensaje" class="form-input" rows="3" placeholder="Cuéntanos brevemente sobre tu situación..." required></textarea>
+          </div>
+          <div class="mb-4 text-[11px] leading-relaxed text-[#475569]">
+            <p>
+              Aviso de privacidad simplificado: JUAN FLORES JUAREZ, persona física que opera bajo el nombre comercial JMF Consultores, con domicilio en Isla Clarion, número exterior 35, fraccionamiento Las Camelinas, Manzanillo, Colima, C.P. 28860, México, es responsable del tratamiento de los datos proporcionados. Su nombre, empresa, teléfono o WhatsApp y la información incluida en el mensaje serán utilizados únicamente para atender su solicitud, contactarle, preparar una cotización y dar seguimiento a una posible contratación. Sus datos no serán utilizados para publicidad. Puede limitar su uso, revocar su consentimiento o ejercer sus derechos ARCO escribiendo a <a href="mailto:juan.flores@jmfconsultores.mx" class="text-[#00004D] underline underline-offset-2">juan.flores@jmfconsultores.mx</a>. Consulte el <a href="/documentos/aviso-de-privacidad-jmf-consultores.pdf" target="_blank" rel="noopener noreferrer" class="text-[#00004D] underline underline-offset-2">Aviso de Privacidad integral</a>.
+            </p>
+          </div>
+          <div class="mb-4 text-[11px] leading-relaxed text-[#64748B]">
+            No incluyas datos personales sensibles, financieros, patrimoniales ni información de terceros.
           </div>
           <div class="flex flex-col sm:flex-row gap-4 items-center">
             <button type="submit" class="btn-primary flex-1 sm:flex-none">
@@ -452,8 +472,8 @@
               <i class="ti ti-send text-base"></i>
             </button>
             <span class="text-[#94A3B8] text-sm hidden sm:block">o</span>
-            <a href="https://wa.me/2222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
-               target="_blank" rel="noopener" class="btn-navy flex-1 sm:flex-none">
+            <a href="https://wa.me/522222012564?text=Hola%2C%20me%20interesa%20conocer%20sus%20servicios"
+               target="_blank" rel="noopener noreferrer" class="btn-navy flex-1 sm:flex-none">
               <img src="./assets/images/logo/wlogo.png" alt="WhatsApp" style="width:18px; height:18px; flex-shrink:0">
               Escríbenos por WhatsApp
             </a>
@@ -474,12 +494,12 @@
 
       <div class="md:col-span-2 mt-1">
         <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores"
-             class="h-11 w-auto mb-5 brightness-0 invert">
+             class="footer-brand-logo">
         <p class="text-white/55 text-sm leading-relaxed max-w-xs">
           Sistemas de gestión y certificaciones para empresas en México.
           Resultados concretos, sin burocracia innecesaria.
         </p>
-        <a href="https://wa.me/2222012564" target="_blank" rel="noopener"
+        <a href="https://wa.me/522222012564" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-2 mt-5 text-sm font-medium transition-colors"
            style="color:#4ade80">
           <i class="ti ti-brand-whatsapp text-lg"></i>
@@ -502,6 +522,7 @@
         <ul class="flex flex-col gap-2.5 mb-7">
           <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
           <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+          <li><a href="/documentos/aviso-de-privacidad-jmf-consultores.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf" aria-label="Abrir Aviso de Privacidad en PDF" class="footer-link">Aviso de Privacidad</a></li>
         </ul>
         <h5 class="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Contacto</h5>
         <ul class="flex flex-col gap-2">
@@ -521,7 +542,7 @@
 
     <div class="pt-8 border-t text-center"
          style="border-color:rgba(255,255,255,0.1)">
-      <p class="text-white/35 text-sm">© 2025 JMF Consultores. Todos los derechos reservados.</p>
+      <p class="text-white/35 text-sm">© <span data-current-year>2026</span> JMF Consultores. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>

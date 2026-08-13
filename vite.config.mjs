@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 import glob from 'fast-glob'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const htmlFiles = glob.sync('./src/**/*.html')
 
@@ -16,7 +17,17 @@ export default defineConfig({
     open: true,
   },
 
-  plugins: [tailwindcss()],
+  plugins: [
+    tailwindcss(),
+    viteStaticCopy({
+      targets: [
+        { src: '../robots.txt', dest: '.' },
+        { src: '../sitemap.xml', dest: '.' },
+        { src: '../404.html', dest: '.' },
+        { src: '../CNAME', dest: '.' },
+      ],
+    }),
+  ],
 
   build: {
     outDir: resolve(__dirname, 'dist'),
