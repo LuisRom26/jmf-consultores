@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jmfconsultores.mx/servicios.html">
   <link rel="canonical" href="https://jmfconsultores.mx/servicios.html">
-  <link rel="icon" href="./assets/images/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/images/favicon/JMF.svg" type="image/svg+xml" />
   <title>Servicios — JMF Consultores</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,8 @@
      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="container-wide">
     <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex-shrink-0">
-        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      <a href="index.html" class="brand-logo-frame" aria-label="JMF Consultores — Inicio">
+        <img src="./assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="brand-logo-image">
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
@@ -38,7 +38,7 @@
         <a href="nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Nosotros</a>
         <a href="contacto.html" class="btn-primary">Contáctanos</a>
       </div>
-      <button type="button" @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md" aria-label="Abrir menú de navegación" :aria-label="open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" aria-expanded="false" :aria-expanded="open ? 'true' : 'false'" aria-controls="mobile-menu">
+      <button type="button" @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="mobile-menu-toggle md:hidden p-2 rounded-md" :aria-label="open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" :aria-expanded="open ? 'true' : 'false'" aria-controls="mobile-menu">
         <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
@@ -75,7 +75,9 @@
     <div class="grid md:grid-cols-2 gap-8">
 
       <!-- Consultoría SGE -->
-      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="0">
+      <article class="service-detail-card" data-cue="fadeInUp" data-delay="0">
+        <div class="service-detail-media"><img class="image-consultoria" src="./assets/images/content/services/consultoria-sistemas-gestion.webp" alt="Profesionales revisando documentación de un sistema de gestión" width="4200" height="2794" loading="lazy"></div>
+        <div class="service-detail-body">
         <div class="flex items-start gap-5 mb-5">
           <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-certificate"></i></div>
           <div>
@@ -83,7 +85,7 @@
             <p class="text-[#64748B] text-sm">Para empresas que necesitan certificarse o mejorar sus procesos.</p>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="service-detail-content mb-5">
           <p class="text-[#374151] text-sm leading-relaxed mb-4">
             Implementamos y mejoramos sistemas de gestión bajo normas nacionales e internacionales. Desde el diagnóstico inicial hasta la obtención de la certificación.
           </p>
@@ -97,10 +99,13 @@
           </div>
         </div>
         <a href="servicios/consultoria.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
-      </div>
+        </div>
+      </article>
 
       <!-- CONOCER -->
-      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="80">
+      <article class="service-detail-card" data-cue="fadeInUp" data-delay="80">
+        <div class="service-detail-media"><img class="image-conocer" src="./assets/images/content/services/certificacion-conocer.webp" alt="Persona participando en una actividad de evaluación profesional" width="5474" height="3654" loading="lazy"></div>
+        <div class="service-detail-body">
         <div class="flex items-start gap-5 mb-5">
           <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-school"></i></div>
           <div>
@@ -108,7 +113,7 @@
             <p class="text-[#64748B] text-sm">Para instructores, capacitadores y profesionales.</p>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="service-detail-content mb-5">
           <p class="text-[#374151] text-sm leading-relaxed mb-4">
             Evaluación oficial de competencias laborales mediante estándares del CONOCER. Acompañamos todo el proceso: desde la evaluación diagnóstica hasta la gestión del certificado.
           </p>
@@ -119,10 +124,13 @@
           </div>
         </div>
         <a href="servicios/conocer.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
-      </div>
+        </div>
+      </article>
 
       <!-- Licencias -->
-      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="160">
+      <article class="service-detail-card" data-cue="fadeInUp" data-delay="160">
+        <div class="service-detail-media"><img class="image-licencias" src="./assets/images/content/services/renovacion-licencias.webp" alt="Operador de transporte junto a un tractocamión" width="5184" height="3456" loading="lazy"></div>
+        <div class="service-detail-body">
         <div class="flex items-start gap-5 mb-5">
           <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-id-badge"></i></div>
           <div>
@@ -130,7 +138,7 @@
             <p class="text-[#64748B] text-sm">Para operadores y empresas de transporte.</p>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="service-detail-content mb-5">
           <p class="text-[#374151] text-sm leading-relaxed mb-4">
             Gestión y acompañamiento para la renovación de licencias de operadores de autotransporte federal. Nos encargamos de los requisitos, integración documental y seguimiento del trámite.
           </p>
@@ -141,10 +149,13 @@
           </div>
         </div>
         <a href="servicios/licencias.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
-      </div>
+        </div>
+      </article>
 
       <!-- Headhunting -->
-      <div class="bg-[#F4F6FB] rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-all duration-300 hover:-translate-y-1" data-cue="fadeInUp" data-delay="240">
+      <article class="service-detail-card" data-cue="fadeInUp" data-delay="240">
+        <div class="service-detail-media"><img class="image-headhunting" src="./assets/images/content/services/headhunting.webp" alt="Entrevista profesional en un entorno de trabajo" width="6000" height="4000" loading="lazy"></div>
+        <div class="service-detail-body">
         <div class="flex items-start gap-5 mb-5">
           <div class="service-icon flex-shrink-0 mb-0"><i class="ti ti-users-group"></i></div>
           <div>
@@ -152,7 +163,7 @@
             <p class="text-[#64748B] text-sm">Para empresas que necesitan contratar bien desde el inicio.</p>
           </div>
         </div>
-        <div class="mb-5">
+        <div class="service-detail-content mb-5">
           <p class="text-[#374151] text-sm leading-relaxed mb-4">
             Búsqueda y selección estratégica de talento clave para posiciones técnicas y operativas. No mandamos CVs al azar — validamos competencias y te presentamos candidatos verificados.
           </p>
@@ -163,7 +174,8 @@
           </div>
         </div>
         <a href="servicios/headhunting.html" class="btn-navy">Ver detalles <i class="ti ti-arrow-right text-base"></i></a>
-      </div>
+        </div>
+      </article>
 
     </div>
   </div>

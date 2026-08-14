@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jmfconsultores.mx/contacto.html">
   <link rel="canonical" href="https://jmfconsultores.mx/contacto.html">
-  <link rel="icon" href="assets/images/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/images/favicon/JMF.svg" type="image/svg+xml" />
   <title>Contacto — JMF Consultores</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="container-wide">
     <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex-shrink-0">
-        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="h-12 w-auto object-contain">
+      <a href="index.html" class="brand-logo-frame" aria-label="JMF Consultores — Inicio">
+        <img src="assets/images/logo/logojmf.jpg" alt="JMF Consultores" class="brand-logo-image">
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="index.html"     :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Inicio</a>
@@ -36,7 +36,7 @@
         <a href="nosotros.html"  :class="scrolled?'nav-link-dark':'nav-link-light'" class="nav-link">Nosotros</a>
         <a href="contacto.html" class="btn-primary">Contáctanos</a>
       </div>
-      <button type="button" @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="md:hidden p-2 rounded-md" aria-label="Abrir menú de navegación" :aria-label="open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" aria-expanded="false" :aria-expanded="open ? 'true' : 'false'" aria-controls="mobile-menu">
+      <button type="button" @click="open=!open" :class="scrolled?'text-gray-700':'text-white'" class="mobile-menu-toggle md:hidden p-2 rounded-md" :aria-label="open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" :aria-expanded="open ? 'true' : 'false'" aria-controls="mobile-menu">
         <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg x-show="open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>

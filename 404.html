@@ -13,15 +13,16 @@
         display: grid;
         place-items: center;
         font-family: Arial, sans-serif;
-        background: #f4f6fb;
-        color: #0f172a;
+        background: linear-gradient(135deg, #00004d 0%, #000035 70%, #0a0a6e 100%);
+        color: #0a0a23;
       }
       .card {
         max-width: 560px;
         padding: 2rem 2.5rem;
         background: white;
-        border-radius: 18px;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        border-top: 4px solid #f50b0b;
+        border-radius: 8px;
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.3);
         text-align: center;
       }
       h1 { margin: 0 0 0.75rem; font-size: clamp(2rem, 4vw, 3rem); }
@@ -29,19 +30,21 @@
       a {
         display: inline-block;
         padding: 0.8rem 1.2rem;
-        background: #00004d;
+        background: #d00909;
         color: white;
         text-decoration: none;
         border-radius: 10px;
         font-weight: 600;
       }
+      a:hover { background: #a80707; }
+      a:focus-visible { outline: 3px solid #00004d; outline-offset: 3px; }
     </style>
   </head>
   <body>
     <main class="card">
       <h1>404</h1>
       <p>La página que buscas no existe o fue movida.</p>
-      <a href="/">Volver al inicio</a>
+      <a href="./index.html">Volver al inicio</a>
     </main>
   </body>
 </html>

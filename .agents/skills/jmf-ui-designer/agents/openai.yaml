@@ -1,0 +1,4 @@
+interface:
+  display_name: "JMF UI Designer"
+  short_description: "Audita y mejora la UI/UX de JMF Consultores"
+  default_prompt: "Usa $jmf-ui-designer para revisar la UI/UX del sitio JMF Consultores y aplicar solo los cambios autorizados."

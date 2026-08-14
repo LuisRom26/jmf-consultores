@@ -39,6 +39,16 @@ body {
 
 *, *::before, *::after { box-sizing: border-box; }
 
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid #F50B0B;
+  outline-offset: 3px;
+}
+
+:where(.hero-bg, .page-hero, .stats-bg, .footer-bg) :where(a, button):focus-visible {
+  outline-color: #fff;
+  box-shadow: 0 0 0 5px rgba(245, 11, 11, 0.75);
+}
+
 /* ============================================================
    ANIMATIONS
    ============================================================ */
@@ -91,8 +101,8 @@ body {
 .section-py  { padding-top: 80px;  padding-bottom: 80px; }
 @media (min-width: 768px) { .section-py { padding-top: 100px; padding-bottom: 100px; } }
 
-.hero-py     { padding-top: 130px; padding-bottom: 100px; }
-@media (min-width: 768px) { .hero-py { padding-top: 160px; padding-bottom: 120px; } }
+.hero-py { padding-top: 108px; padding-bottom: 72px; }
+@media (min-width: 768px) { .hero-py { padding-top: 126px; padding-bottom: 88px; } }
 
 /* ============================================================
    SECTION LABELS
@@ -105,7 +115,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #F50B0B;
+  color: #D00909;
   margin-bottom: 10px;
 }
 .section-tag::before {
@@ -123,7 +133,7 @@ body {
   font-weight: 700;
   color: #00004D;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 @media (min-width: 768px) { .section-title { font-size: 2.4rem; } }
 
@@ -247,7 +257,7 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 13px 26px;
-  background: #F50B0B;
+  background: #D00909;
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
@@ -259,7 +269,7 @@ body {
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover {
-  background: #D00909;
+  background: #A80707;
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(245,11,11,0.32);
 }
@@ -347,26 +357,38 @@ body {
 .nav-link-dark  { color: #374151; }
 .nav-link-dark:hover  { color: #00004D; }
 
-nav img[alt="JMF Consultores"] {
-  display: block;
-  width: clamp(90px, 22vw, 126px);
-  height: auto;
-  max-height: 64px;
-  object-fit: contain;
-  vertical-align: middle;
-  flex-shrink: 0;
+.mobile-menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
-  nav img[alt="JMF Consultores"] {
-    width: clamp(105px, 9vw, 126px);
-  }
+  .mobile-menu-toggle { display: none; }
+}
+
+.brand-logo-frame {
+  width: 136px;
+  height: 68px;
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.brand-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 767px) {
-  nav img[alt="JMF Consultores"] {
-    width: clamp(90px, 24vw, 105px);
-  }
+  .brand-logo-frame { width: 110px; height: 54px; }
 }
 
 /* ============================================================
@@ -376,15 +398,81 @@ nav img[alt="JMF Consultores"] {
   background: #fff;
   border-radius: 18px;
   border: 1px solid #E2E8F0;
-  padding: 32px 28px;
+  padding: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
+
+.service-card-media,
+.service-detail-media {
+  position: relative;
+  overflow: hidden;
+  background: #E8EBF3;
+}
+
+.service-card-media { aspect-ratio: 16 / 10; }
+.service-detail-media { aspect-ratio: 16 / 8; }
+
+.service-card-media::after,
+.service-detail-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 53, 0.38));
+  pointer-events: none;
+}
+
+.service-card-media img,
+.service-detail-media img,
+.hero-photo-frame img,
+.service-hero-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.service-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 26px 24px 28px;
+}
+
+.service-card-body > p { flex: 1; }
+.service-card-body > span { color: #D00909; }
+.service-card:hover .service-card-media img { transform: scale(1.025); }
+
+.service-detail-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #F4F6FB;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-detail-card:hover {
+  border-color: rgba(0, 0, 77, 0.2);
+  box-shadow: 0 14px 36px rgba(0, 0, 77, 0.1);
+}
+
+.service-detail-card:hover .service-detail-media img { transform: scale(1.02); }
+.service-detail-body { display: flex; flex: 1; flex-direction: column; padding: 28px; }
+.service-detail-body > .service-detail-content { flex: 1; }
+
+.image-consultoria { object-position: center 48%; }
+.image-conocer { object-position: center 38%; }
+.image-licencias { object-position: center 54%; }
+.image-headhunting { object-position: center 42%; }
 .service-card::before {
   content: '';
   position: absolute;
@@ -546,18 +634,18 @@ nav img[alt="JMF Consultores"] {
 .footer-bg { background: #000035; }
 .footer-brand-logo {
   display: block;
-  width: clamp(90px, 14vw, 120px);
-  height: auto;
+  width: 130px;
+  height: 65px;
   margin-bottom: 1.25rem;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   filter: none;
-  vertical-align: middle;
+  border-radius: 4px;
+  background: #fff;
 }
 
 @media (max-width: 767px) {
-  .footer-brand-logo {
-    width: clamp(90px, 26vw, 105px);
-  }
+  .footer-brand-logo { width: 110px; height: 54px; }
 }
 
 .footer-link {
@@ -619,6 +707,55 @@ nav img[alt="JMF Consultores"] {
   background-size: 52px 52px;
 }
 .page-hero > * { position: relative; z-index: 1; }
+
+.hero-photo-frame,
+.service-hero-media {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: #000035;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.3);
+}
+
+.hero-photo-frame { aspect-ratio: 16 / 11; }
+.service-hero-media { aspect-ratio: 4 / 3; }
+
+.service-hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(0, 0, 53, 0.42), transparent 48%, rgba(0, 0, 53, 0.16));
+  pointer-events: none;
+}
+
+.service-hero-grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+.service-hero-kicker-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 900px) {
+  .service-hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr); }
+  .service-hero-grid.service-hero-reverse { grid-template-columns: minmax(360px, 0.92fr) minmax(0, 1.08fr); }
+  .service-hero-reverse .service-hero-copy { order: 2; }
+  .service-hero-reverse .service-hero-media { order: 1; }
+}
+
+@media (max-width: 639px) {
+  .service-card-body,
+  .service-detail-body { padding: 24px 20px; }
+}
 
 /* ============================================================
    SERVICE INNER PAGES
@@ -703,30 +840,293 @@ nav img[alt="JMF Consultores"] {
 [data-cue] { opacity: 1; }
 [data-cue].cue-in { opacity: 1; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* ============================================================
-   NOSOTROS — Values grid
+   NOSOTROS — Purpose, values and testimonials
    ============================================================ */
-.value-card {
+.about-purpose,
+.about-why { background: #F4F6FB; }
+
+.about-section-heading {
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.purpose-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.purpose-card {
+  overflow: hidden;
   background: #fff;
-  border-radius: 14px;
-  padding: 24px;
-  border: 1px solid #E2E8F0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #DCE3ED;
+  border-radius: 8px;
+}
+
+.purpose-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #E7EBF2;
+}
+
+.purpose-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.purpose-image-mission { object-position: center 34%; }
+.purpose-image-vision { object-position: center 62%; }
+
+.purpose-body { padding: 28px; }
+
+.purpose-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.purpose-title-row h3 {
+  color: #00004D;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.purpose-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  border-radius: 8px;
+  color: #fff;
+  background: #00004D;
+}
+
+.purpose-icon-red { background: #C90808; }
+.purpose-icon i { font-size: 1.2rem; }
+
+.purpose-body p {
+  color: #526174;
+  line-height: 1.75;
+}
+
+.values-editorial {
+  color: #fff;
+  background: #000035;
+}
+
+.values-layout {
+  display: grid;
+  gap: 44px;
+}
+
+.values-intro .section-tag { color: #FF8080; }
+.values-intro .section-tag::before { background: #FF5B5B; }
+
+.values-intro .section-title {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.values-intro p {
+  max-width: 34rem;
+  margin-top: 18px;
+  color: #CED3E0;
+  line-height: 1.75;
+}
+
+.values-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.value-item {
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.value-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 15px;
+}
+
+.value-number {
+  color: #FF7373;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.value-heading i {
+  color: #fff;
+  font-size: 1.35rem;
+}
+
+.value-item h3 {
+  margin-bottom: 9px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.value-item p {
+  color: #CED3E0;
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.why-heading {
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+.why-heading .section-title { margin-top: 10px; }
+
+.why-layout {
+  display: grid;
+  gap: 48px;
+}
+
+.differentiators-list {
+  border-top: 1px solid #CBD5E1;
+}
+
+.differentiator-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid #CBD5E1;
+}
+
+.differentiator-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #C90808;
+}
+
+.differentiator-icon i { font-size: 0.9rem; }
+
+.differentiator-item h3 {
+  margin-bottom: 6px;
+  color: #00004D;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.differentiator-item p {
+  color: #526174;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.testimonials-column {
+  display: grid;
+  gap: 16px;
+}
+
+.testimonials-column > h3 {
+  margin-bottom: 2px;
+  color: #00004D;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.testimonial-card {
   position: relative;
   overflow: hidden;
+  margin: 0;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #DCE3ED;
+  border-radius: 8px;
 }
-.value-card::before {
-  content: '';
+
+.testimonial-quote {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #00004D, #F50B0B);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s ease;
+  top: 4px;
+  right: 18px;
+  color: #E3E7F0;
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
 }
-.value-card:hover::before { transform: scaleX(1); }
-.value-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,77,0.09);
+
+.testimonial-tag {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 5px 9px;
+  color: #9F0707;
+  background: #FDECEC;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.testimonial-card p {
+  position: relative;
+  margin-bottom: 18px;
+  color: #374151;
+  font-size: 0.925rem;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+.testimonial-card footer {
+  color: #00004D;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .purpose-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .values-layout { grid-template-columns: minmax(0, 0.52fr) minmax(0, 1fr); }
+  .values-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .value-item { padding: 26px 28px; }
+  .value-item:nth-child(odd) { padding-left: 0; border-right: 1px solid rgba(255, 255, 255, 0.2); }
+  .value-item:nth-child(even) { padding-right: 0; }
+  .why-layout { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: start; }
+}
+
+@media (min-width: 1024px) {
+  .values-layout { grid-template-columns: minmax(0, 0.48fr) minmax(0, 1fr); gap: 72px; }
+  .values-intro { position: sticky; top: 120px; align-self: start; }
+  .why-layout { gap: 72px; }
+}
+
+@media (max-width: 639px) {
+  .about-section-heading { margin-bottom: 28px; text-align: left; }
+  .purpose-body { padding: 22px 20px 24px; }
+  .purpose-media { aspect-ratio: 4 / 3; }
+  .values-layout { gap: 28px; }
+  .value-item { padding: 21px 0; }
+  .why-heading { margin-bottom: 30px; }
+  .why-layout { gap: 34px; }
+  .testimonial-card { padding: 24px 20px; }
 }
