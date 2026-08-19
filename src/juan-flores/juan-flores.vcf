@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Ing. Juan Flores Juárez
+N;CHARSET=UTF-8:Flores Juárez;Juan;;Ing.;
+ORG;CHARSET=UTF-8:JMF Consultores
+TITLE;CHARSET=UTF-8:Director General
+TEL;TYPE=CELL,VOICE,PREF:+522271382396
+TEL;TYPE=CELL,VOICE:+522222012564
+EMAIL;TYPE=INTERNET,WORK:juan.flores@jmfconsultores.mx
+URL:https://jmfconsultores.mx/juan-flores/
+END:VCARD

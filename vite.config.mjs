@@ -25,6 +25,7 @@ export default defineConfig({
         { src: '../sitemap.xml', dest: '.' },
         { src: '../404.html', dest: '.' },
         { src: '../CNAME', dest: '.' },
+        { src: './juan-flores/juan-flores.vcf', dest: 'juan-flores' },
       ],
     }),
   ],
